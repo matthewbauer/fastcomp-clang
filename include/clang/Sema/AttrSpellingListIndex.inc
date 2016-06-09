@@ -1,6 +1,6 @@
 /*===- TableGen'erated file -------------------------------------*- C++ -*-===*\
 |*                                                                            *|
-|*Code to translate different attribute spellings into internal identifiers   *|
+|* Code to translate different attribute spellings into internal identifiers  *|
 |*                                                                            *|
 |* Automatically generated file, do not edit!                                 *|
 |*                                                                            *|
@@ -336,6 +336,13 @@
         return 1;
     break;
   }
+  case AT_DisableTailCalls: {
+    if (Name == "disable_tail_calls" && SyntaxUsed == 0 && Scope == "")
+        return 0;
+    if (Name == "disable_tail_calls" && SyntaxUsed == 1 && Scope == "clang")
+        return 1;
+    break;
+  }
   case AT_EnableIf: {
     if (Name == "enable_if" && SyntaxUsed == 0 && Scope == "")
         return 0;
@@ -440,6 +447,13 @@
   case AT_IntelOclBicc: {
     if (Name == "intel_ocl_bicc" && SyntaxUsed == 0 && Scope == "")
         return 0;
+    break;
+  }
+  case AT_InternalLinkage: {
+    if (Name == "internal_linkage" && SyntaxUsed == 0 && Scope == "")
+        return 0;
+    if (Name == "internal_linkage" && SyntaxUsed == 1 && Scope == "clang")
+        return 1;
     break;
   }
   case AT_LockReturned: {
@@ -566,6 +580,11 @@
         return 0;
     break;
   }
+  case AT_NoAlias: {
+    if (Name == "noalias" && SyntaxUsed == 2 && Scope == "")
+        return 0;
+    break;
+  }
   case AT_NoCommon: {
     if (Name == "nocommon" && SyntaxUsed == 0 && Scope == "")
         return 0;
@@ -619,7 +638,14 @@
         return 2;
     break;
   }
-  case AT_NoSanitizeAddress: {
+  case AT_NoSanitize: {
+    if (Name == "no_sanitize" && SyntaxUsed == 0 && Scope == "")
+        return 0;
+    if (Name == "no_sanitize" && SyntaxUsed == 1 && Scope == "clang")
+        return 1;
+    break;
+  }
+  case AT_NoSanitizeSpecific: {
     if (Name == "no_address_safety_analysis" && SyntaxUsed == 0 && Scope == "")
         return 0;
     if (Name == "no_address_safety_analysis" && SyntaxUsed == 1 && Scope == "gnu")
@@ -628,16 +654,12 @@
         return 2;
     if (Name == "no_sanitize_address" && SyntaxUsed == 1 && Scope == "gnu")
         return 3;
-    break;
-  }
-  case AT_NoSanitizeMemory: {
-    if (Name == "no_sanitize_memory" && SyntaxUsed == 0 && Scope == "")
-        return 0;
-    break;
-  }
-  case AT_NoSanitizeThread: {
     if (Name == "no_sanitize_thread" && SyntaxUsed == 0 && Scope == "")
-        return 0;
+        return 4;
+    if (Name == "no_sanitize_thread" && SyntaxUsed == 1 && Scope == "gnu")
+        return 5;
+    if (Name == "no_sanitize_memory" && SyntaxUsed == 0 && Scope == "")
+        return 6;
     break;
   }
   case AT_NoSplitStack: {
@@ -666,6 +688,18 @@
         return 0;
     if (Name == "nonnull" && SyntaxUsed == 1 && Scope == "gnu")
         return 1;
+    break;
+  }
+  case AT_NotTailCalled: {
+    if (Name == "not_tail_called" && SyntaxUsed == 0 && Scope == "")
+        return 0;
+    if (Name == "not_tail_called" && SyntaxUsed == 1 && Scope == "clang")
+        return 1;
+    break;
+  }
+  case AT_ObjCBoxable: {
+    if (Name == "objc_boxable" && SyntaxUsed == 0 && Scope == "")
+        return 0;
     break;
   }
   case AT_ObjCBridge: {
@@ -705,6 +739,11 @@
   }
   case AT_ObjCIndependentClass: {
     if (Name == "objc_independent_class" && SyntaxUsed == 0 && Scope == "")
+        return 0;
+    break;
+  }
+  case AT_ObjCKindOf: {
+    if (Name == "__kindof" && SyntaxUsed == 3 && Scope == "")
         return 0;
     break;
   }
@@ -850,6 +889,11 @@
         return 1;
     if (Name == "_pascal" && SyntaxUsed == 3 && Scope == "")
         return 2;
+    break;
+  }
+  case AT_PassObjectSize: {
+    if (Name == "pass_object_size" && SyntaxUsed == 0 && Scope == "")
+        return 0;
     break;
   }
   case AT_Pcs: {
@@ -1024,6 +1068,13 @@
         return 1;
     break;
   }
+  case AT_Target: {
+    if (Name == "target" && SyntaxUsed == 0 && Scope == "")
+        return 0;
+    if (Name == "target" && SyntaxUsed == 1 && Scope == "gnu")
+        return 1;
+    break;
+  }
   case AT_TestTypestate: {
     if (Name == "test_typestate" && SyntaxUsed == 0 && Scope == "")
         return 0;
@@ -1061,6 +1112,21 @@
         return 2;
     if (Name == "try_acquire_shared_capability" && SyntaxUsed == 1 && Scope == "clang")
         return 3;
+    break;
+  }
+  case AT_TypeNonNull: {
+    if (Name == "_Nonnull" && SyntaxUsed == 3 && Scope == "")
+        return 0;
+    break;
+  }
+  case AT_TypeNullUnspecified: {
+    if (Name == "_Null_unspecified" && SyntaxUsed == 3 && Scope == "")
+        return 0;
+    break;
+  }
+  case AT_TypeNullable: {
+    if (Name == "_Nullable" && SyntaxUsed == 3 && Scope == "")
+        return 0;
     break;
   }
   case AT_TypeTagForDatatype: {

@@ -84,6 +84,16 @@ set_target_properties(LLVMAsmPrinter PROPERTIES
 list(APPEND _IMPORT_CHECK_TARGETS LLVMAsmPrinter )
 list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMAsmPrinter "${_IMPORT_PREFIX}/lib/libLLVMAsmPrinter.a" )
 
+# Import target "LLVMMIRParser" for configuration "Release"
+set_property(TARGET LLVMMIRParser APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(LLVMMIRParser PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMMIRParser.a"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS LLVMMIRParser )
+list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMMIRParser "${_IMPORT_PREFIX}/lib/libLLVMMIRParser.a" )
+
 # Import target "LLVMBitReader" for configuration "Release"
 set_property(TARGET LLVMBitReader APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(LLVMBitReader PROPERTIES
@@ -103,46 +113,6 @@ set_target_properties(LLVMBitWriter PROPERTIES
 
 list(APPEND _IMPORT_CHECK_TARGETS LLVMBitWriter )
 list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMBitWriter "${_IMPORT_PREFIX}/lib/libLLVMBitWriter.a" )
-
-# Import target "LLVMNaClBitWriter" for configuration "Release"
-set_property(TARGET LLVMNaClBitWriter APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(LLVMNaClBitWriter PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMNaClBitWriter.a"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS LLVMNaClBitWriter )
-list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMNaClBitWriter "${_IMPORT_PREFIX}/lib/libLLVMNaClBitWriter.a" )
-
-# Import target "LLVMNaClBitReader" for configuration "Release"
-set_property(TARGET LLVMNaClBitReader APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(LLVMNaClBitReader PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMNaClBitReader.a"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS LLVMNaClBitReader )
-list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMNaClBitReader "${_IMPORT_PREFIX}/lib/libLLVMNaClBitReader.a" )
-
-# Import target "LLVMNaClBitAnalysis" for configuration "Release"
-set_property(TARGET LLVMNaClBitAnalysis APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(LLVMNaClBitAnalysis PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMNaClBitAnalysis.a"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS LLVMNaClBitAnalysis )
-list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMNaClBitAnalysis "${_IMPORT_PREFIX}/lib/libLLVMNaClBitAnalysis.a" )
-
-# Import target "LLVMNaClBitTestUtils" for configuration "Release"
-set_property(TARGET LLVMNaClBitTestUtils APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(LLVMNaClBitTestUtils PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMNaClBitTestUtils.a"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS LLVMNaClBitTestUtils )
-list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMNaClBitTestUtils "${_IMPORT_PREFIX}/lib/libLLVMNaClBitTestUtils.a" )
 
 # Import target "LLVMTransformUtils" for configuration "Release"
 set_property(TARGET LLVMTransformUtils APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
@@ -224,26 +194,6 @@ set_target_properties(LLVMObjCARCOpts PROPERTIES
 list(APPEND _IMPORT_CHECK_TARGETS LLVMObjCARCOpts )
 list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMObjCARCOpts "${_IMPORT_PREFIX}/lib/libLLVMObjCARCOpts.a" )
 
-# Import target "LLVMNaClTransforms" for configuration "Release"
-set_property(TARGET LLVMNaClTransforms APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(LLVMNaClTransforms PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMNaClTransforms.a"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS LLVMNaClTransforms )
-list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMNaClTransforms "${_IMPORT_PREFIX}/lib/libLLVMNaClTransforms.a" )
-
-# Import target "LLVMMinSFITransforms" for configuration "Release"
-set_property(TARGET LLVMMinSFITransforms APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(LLVMMinSFITransforms PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMMinSFITransforms.a"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS LLVMMinSFITransforms )
-list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMMinSFITransforms "${_IMPORT_PREFIX}/lib/libLLVMMinSFITransforms.a" )
-
 # Import target "LLVMLinker" for configuration "Release"
 set_property(TARGET LLVMLinker APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(LLVMLinker PROPERTIES
@@ -263,26 +213,6 @@ set_target_properties(LLVMAnalysis PROPERTIES
 
 list(APPEND _IMPORT_CHECK_TARGETS LLVMAnalysis )
 list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMAnalysis "${_IMPORT_PREFIX}/lib/libLLVMAnalysis.a" )
-
-# Import target "LLVMipa" for configuration "Release"
-set_property(TARGET LLVMipa APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(LLVMipa PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMipa.a"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS LLVMipa )
-list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMipa "${_IMPORT_PREFIX}/lib/libLLVMipa.a" )
-
-# Import target "LLVMNaClAnalysis" for configuration "Release"
-set_property(TARGET LLVMNaClAnalysis APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(LLVMNaClAnalysis PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMNaClAnalysis.a"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS LLVMNaClAnalysis )
-list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMNaClAnalysis "${_IMPORT_PREFIX}/lib/libLLVMNaClAnalysis.a" )
 
 # Import target "LLVMLTO" for configuration "Release"
 set_property(TARGET LLVMLTO APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
@@ -344,6 +274,16 @@ set_target_properties(LLVMOption PROPERTIES
 list(APPEND _IMPORT_CHECK_TARGETS LLVMOption )
 list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMOption "${_IMPORT_PREFIX}/lib/libLLVMOption.a" )
 
+# Import target "LLVMDebugInfoCodeView" for configuration "Release"
+set_property(TARGET LLVMDebugInfoCodeView APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(LLVMDebugInfoCodeView PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMDebugInfoCodeView.a"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS LLVMDebugInfoCodeView )
+list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMDebugInfoCodeView "${_IMPORT_PREFIX}/lib/libLLVMDebugInfoCodeView.a" )
+
 # Import target "LLVMDebugInfoDWARF" for configuration "Release"
 set_property(TARGET LLVMDebugInfoDWARF APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(LLVMDebugInfoDWARF PROPERTIES
@@ -363,6 +303,16 @@ set_target_properties(LLVMDebugInfoPDB PROPERTIES
 
 list(APPEND _IMPORT_CHECK_TARGETS LLVMDebugInfoPDB )
 list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMDebugInfoPDB "${_IMPORT_PREFIX}/lib/libLLVMDebugInfoPDB.a" )
+
+# Import target "LLVMSymbolize" for configuration "Release"
+set_property(TARGET LLVMSymbolize APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(LLVMSymbolize PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMSymbolize.a"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS LLVMSymbolize )
+list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMSymbolize "${_IMPORT_PREFIX}/lib/libLLVMSymbolize.a" )
 
 # Import target "LLVMExecutionEngine" for configuration "Release"
 set_property(TARGET LLVMExecutionEngine APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
@@ -524,6 +474,16 @@ set_target_properties(LLVMJSBackendDesc PROPERTIES
 list(APPEND _IMPORT_CHECK_TARGETS LLVMJSBackendDesc )
 list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMJSBackendDesc "${_IMPORT_PREFIX}/lib/libLLVMJSBackendDesc.a" )
 
+# Import target "LLVMPNaClTransforms" for configuration "Release"
+set_property(TARGET LLVMPNaClTransforms APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(LLVMPNaClTransforms PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMPNaClTransforms.a"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS LLVMPNaClTransforms )
+list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMPNaClTransforms "${_IMPORT_PREFIX}/lib/libLLVMPNaClTransforms.a" )
+
 # Import target "LLVMAsmParser" for configuration "Release"
 set_property(TARGET LLVMAsmParser APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(LLVMAsmParser PROPERTIES
@@ -564,59 +524,25 @@ set_target_properties(LLVMPasses PROPERTIES
 list(APPEND _IMPORT_CHECK_TARGETS LLVMPasses )
 list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMPasses "${_IMPORT_PREFIX}/lib/libLLVMPasses.a" )
 
-# Import target "llvm-config" for configuration "Release"
-set_property(TARGET llvm-config APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(llvm-config PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-config"
+# Import target "LLVMLibDriver" for configuration "Release"
+set_property(TARGET LLVMLibDriver APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(LLVMLibDriver PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMLibDriver.a"
   )
 
-list(APPEND _IMPORT_CHECK_TARGETS llvm-config )
-list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-config "${_IMPORT_PREFIX}/bin/llvm-config" )
+list(APPEND _IMPORT_CHECK_TARGETS LLVMLibDriver )
+list(APPEND _IMPORT_CHECK_FILES_FOR_LLVMLibDriver "${_IMPORT_PREFIX}/lib/libLLVMLibDriver.a" )
 
-# Import target "opt" for configuration "Release"
-set_property(TARGET opt APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(opt PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/opt"
+# Import target "LTO" for configuration "Release"
+set_property(TARGET LTO APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(LTO PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLTO.so"
+  IMPORTED_SONAME_RELEASE "libLTO.so"
   )
 
-list(APPEND _IMPORT_CHECK_TARGETS opt )
-list(APPEND _IMPORT_CHECK_FILES_FOR_opt "${_IMPORT_PREFIX}/bin/opt" )
-
-# Import target "llvm-as" for configuration "Release"
-set_property(TARGET llvm-as APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(llvm-as PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-as"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS llvm-as )
-list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-as "${_IMPORT_PREFIX}/bin/llvm-as" )
-
-# Import target "llvm-dis" for configuration "Release"
-set_property(TARGET llvm-dis APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(llvm-dis PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-dis"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS llvm-dis )
-list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-dis "${_IMPORT_PREFIX}/bin/llvm-dis" )
-
-# Import target "llvm-mc" for configuration "Release"
-set_property(TARGET llvm-mc APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(llvm-mc PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-mc"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS llvm-mc )
-list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-mc "${_IMPORT_PREFIX}/bin/llvm-mc" )
-
-# Import target "llc" for configuration "Release"
-set_property(TARGET llc APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(llc PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llc"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS llc )
-list(APPEND _IMPORT_CHECK_FILES_FOR_llc "${_IMPORT_PREFIX}/bin/llc" )
+list(APPEND _IMPORT_CHECK_TARGETS LTO )
+list(APPEND _IMPORT_CHECK_FILES_FOR_LTO "${_IMPORT_PREFIX}/lib/libLTO.so" )
 
 # Import target "llvm-ar" for configuration "Release"
 set_property(TARGET llvm-ar APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
@@ -627,32 +553,14 @@ set_target_properties(llvm-ar PROPERTIES
 list(APPEND _IMPORT_CHECK_TARGETS llvm-ar )
 list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-ar "${_IMPORT_PREFIX}/bin/llvm-ar" )
 
-# Import target "llvm-nm" for configuration "Release"
-set_property(TARGET llvm-nm APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(llvm-nm PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-nm"
+# Import target "llvm-config" for configuration "Release"
+set_property(TARGET llvm-config APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-config PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-config"
   )
 
-list(APPEND _IMPORT_CHECK_TARGETS llvm-nm )
-list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-nm "${_IMPORT_PREFIX}/bin/llvm-nm" )
-
-# Import target "llvm-size" for configuration "Release"
-set_property(TARGET llvm-size APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(llvm-size PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-size"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS llvm-size )
-list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-size "${_IMPORT_PREFIX}/bin/llvm-size" )
-
-# Import target "llvm-cov" for configuration "Release"
-set_property(TARGET llvm-cov APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(llvm-cov PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-cov"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS llvm-cov )
-list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-cov "${_IMPORT_PREFIX}/bin/llvm-cov" )
+list(APPEND _IMPORT_CHECK_TARGETS llvm-config )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-config "${_IMPORT_PREFIX}/bin/llvm-config" )
 
 # Import target "llvm-profdata" for configuration "Release"
 set_property(TARGET llvm-profdata APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
@@ -663,14 +571,42 @@ set_target_properties(llvm-profdata PROPERTIES
 list(APPEND _IMPORT_CHECK_TARGETS llvm-profdata )
 list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-profdata "${_IMPORT_PREFIX}/bin/llvm-profdata" )
 
-# Import target "llvm-link" for configuration "Release"
-set_property(TARGET llvm-link APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(llvm-link PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-link"
+# Import target "BugpointPasses" for configuration "Release"
+set_property(TARGET BugpointPasses APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(BugpointPasses PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/BugpointPasses.so"
+  IMPORTED_SONAME_RELEASE "BugpointPasses.so"
   )
 
-list(APPEND _IMPORT_CHECK_TARGETS llvm-link )
-list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-link "${_IMPORT_PREFIX}/bin/llvm-link" )
+list(APPEND _IMPORT_CHECK_TARGETS BugpointPasses )
+list(APPEND _IMPORT_CHECK_FILES_FOR_BugpointPasses "${_IMPORT_PREFIX}/lib/BugpointPasses.so" )
+
+# Import target "bugpoint" for configuration "Release"
+set_property(TARGET bugpoint APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(bugpoint PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/bugpoint"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS bugpoint )
+list(APPEND _IMPORT_CHECK_FILES_FOR_bugpoint "${_IMPORT_PREFIX}/bin/bugpoint" )
+
+# Import target "llvm-dsymutil" for configuration "Release"
+set_property(TARGET llvm-dsymutil APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-dsymutil PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-dsymutil"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS llvm-dsymutil )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-dsymutil "${_IMPORT_PREFIX}/bin/llvm-dsymutil" )
+
+# Import target "llc" for configuration "Release"
+set_property(TARGET llc APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llc PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llc"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS llc )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llc "${_IMPORT_PREFIX}/bin/llc" )
 
 # Import target "lli" for configuration "Release"
 set_property(TARGET lli APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
@@ -681,14 +617,50 @@ set_target_properties(lli PROPERTIES
 list(APPEND _IMPORT_CHECK_TARGETS lli )
 list(APPEND _IMPORT_CHECK_FILES_FOR_lli "${_IMPORT_PREFIX}/bin/lli" )
 
-# Import target "llvm-extract" for configuration "Release"
-set_property(TARGET llvm-extract APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(llvm-extract PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-extract"
+# Import target "llvm-as" for configuration "Release"
+set_property(TARGET llvm-as APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-as PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-as"
   )
 
-list(APPEND _IMPORT_CHECK_TARGETS llvm-extract )
-list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-extract "${_IMPORT_PREFIX}/bin/llvm-extract" )
+list(APPEND _IMPORT_CHECK_TARGETS llvm-as )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-as "${_IMPORT_PREFIX}/bin/llvm-as" )
+
+# Import target "llvm-bcanalyzer" for configuration "Release"
+set_property(TARGET llvm-bcanalyzer APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-bcanalyzer PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-bcanalyzer"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS llvm-bcanalyzer )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-bcanalyzer "${_IMPORT_PREFIX}/bin/llvm-bcanalyzer" )
+
+# Import target "llvm-c-test" for configuration "Release"
+set_property(TARGET llvm-c-test APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-c-test PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-c-test"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS llvm-c-test )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-c-test "${_IMPORT_PREFIX}/bin/llvm-c-test" )
+
+# Import target "llvm-cov" for configuration "Release"
+set_property(TARGET llvm-cov APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-cov PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-cov"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS llvm-cov )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-cov "${_IMPORT_PREFIX}/bin/llvm-cov" )
+
+# Import target "llvm-cxxdump" for configuration "Release"
+set_property(TARGET llvm-cxxdump APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-cxxdump PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-cxxdump"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS llvm-cxxdump )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-cxxdump "${_IMPORT_PREFIX}/bin/llvm-cxxdump" )
 
 # Import target "llvm-diff" for configuration "Release"
 set_property(TARGET llvm-diff APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
@@ -699,14 +671,86 @@ set_target_properties(llvm-diff PROPERTIES
 list(APPEND _IMPORT_CHECK_TARGETS llvm-diff )
 list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-diff "${_IMPORT_PREFIX}/bin/llvm-diff" )
 
-# Import target "macho-dump" for configuration "Release"
-set_property(TARGET macho-dump APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(macho-dump PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/macho-dump"
+# Import target "llvm-dis" for configuration "Release"
+set_property(TARGET llvm-dis APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-dis PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-dis"
   )
 
-list(APPEND _IMPORT_CHECK_TARGETS macho-dump )
-list(APPEND _IMPORT_CHECK_FILES_FOR_macho-dump "${_IMPORT_PREFIX}/bin/macho-dump" )
+list(APPEND _IMPORT_CHECK_TARGETS llvm-dis )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-dis "${_IMPORT_PREFIX}/bin/llvm-dis" )
+
+# Import target "llvm-dwarfdump" for configuration "Release"
+set_property(TARGET llvm-dwarfdump APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-dwarfdump PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-dwarfdump"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS llvm-dwarfdump )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-dwarfdump "${_IMPORT_PREFIX}/bin/llvm-dwarfdump" )
+
+# Import target "llvm-dwp" for configuration "Release"
+set_property(TARGET llvm-dwp APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-dwp PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-dwp"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS llvm-dwp )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-dwp "${_IMPORT_PREFIX}/bin/llvm-dwp" )
+
+# Import target "llvm-extract" for configuration "Release"
+set_property(TARGET llvm-extract APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-extract PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-extract"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS llvm-extract )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-extract "${_IMPORT_PREFIX}/bin/llvm-extract" )
+
+# Import target "llvm-link" for configuration "Release"
+set_property(TARGET llvm-link APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-link PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-link"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS llvm-link )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-link "${_IMPORT_PREFIX}/bin/llvm-link" )
+
+# Import target "llvm-lto" for configuration "Release"
+set_property(TARGET llvm-lto APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-lto PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-lto"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS llvm-lto )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-lto "${_IMPORT_PREFIX}/bin/llvm-lto" )
+
+# Import target "llvm-mc" for configuration "Release"
+set_property(TARGET llvm-mc APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-mc PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-mc"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS llvm-mc )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-mc "${_IMPORT_PREFIX}/bin/llvm-mc" )
+
+# Import target "llvm-mcmarkup" for configuration "Release"
+set_property(TARGET llvm-mcmarkup APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-mcmarkup PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-mcmarkup"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS llvm-mcmarkup )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-mcmarkup "${_IMPORT_PREFIX}/bin/llvm-mcmarkup" )
+
+# Import target "llvm-nm" for configuration "Release"
+set_property(TARGET llvm-nm APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-nm PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-nm"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS llvm-nm )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-nm "${_IMPORT_PREFIX}/bin/llvm-nm" )
 
 # Import target "llvm-objdump" for configuration "Release"
 set_property(TARGET llvm-objdump APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
@@ -716,6 +760,15 @@ set_target_properties(llvm-objdump PROPERTIES
 
 list(APPEND _IMPORT_CHECK_TARGETS llvm-objdump )
 list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-objdump "${_IMPORT_PREFIX}/bin/llvm-objdump" )
+
+# Import target "llvm-pdbdump" for configuration "Release"
+set_property(TARGET llvm-pdbdump APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-pdbdump PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-pdbdump"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS llvm-pdbdump )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-pdbdump "${_IMPORT_PREFIX}/bin/llvm-pdbdump" )
 
 # Import target "llvm-readobj" for configuration "Release"
 set_property(TARGET llvm-readobj APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
@@ -735,60 +788,23 @@ set_target_properties(llvm-rtdyld PROPERTIES
 list(APPEND _IMPORT_CHECK_TARGETS llvm-rtdyld )
 list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-rtdyld "${_IMPORT_PREFIX}/bin/llvm-rtdyld" )
 
-# Import target "llvm-dwarfdump" for configuration "Release"
-set_property(TARGET llvm-dwarfdump APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(llvm-dwarfdump PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-dwarfdump"
+# Import target "llvm-size" for configuration "Release"
+set_property(TARGET llvm-size APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-size PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-size"
   )
 
-list(APPEND _IMPORT_CHECK_TARGETS llvm-dwarfdump )
-list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-dwarfdump "${_IMPORT_PREFIX}/bin/llvm-dwarfdump" )
+list(APPEND _IMPORT_CHECK_TARGETS llvm-size )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-size "${_IMPORT_PREFIX}/bin/llvm-size" )
 
-# Import target "llvm-dsymutil" for configuration "Release"
-set_property(TARGET llvm-dsymutil APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(llvm-dsymutil PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-dsymutil"
+# Import target "llvm-split" for configuration "Release"
+set_property(TARGET llvm-split APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(llvm-split PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-split"
   )
 
-list(APPEND _IMPORT_CHECK_TARGETS llvm-dsymutil )
-list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-dsymutil "${_IMPORT_PREFIX}/bin/llvm-dsymutil" )
-
-# Import target "llvm-cxxdump" for configuration "Release"
-set_property(TARGET llvm-cxxdump APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(llvm-cxxdump PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-cxxdump"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS llvm-cxxdump )
-list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-cxxdump "${_IMPORT_PREFIX}/bin/llvm-cxxdump" )
-
-# Import target "bugpoint" for configuration "Release"
-set_property(TARGET bugpoint APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(bugpoint PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/bugpoint"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS bugpoint )
-list(APPEND _IMPORT_CHECK_FILES_FOR_bugpoint "${_IMPORT_PREFIX}/bin/bugpoint" )
-
-# Import target "BugpointPasses" for configuration "Release"
-set_property(TARGET BugpointPasses APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(BugpointPasses PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/BugpointPasses.so"
-  IMPORTED_SONAME_RELEASE "BugpointPasses.so"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS BugpointPasses )
-list(APPEND _IMPORT_CHECK_FILES_FOR_BugpointPasses "${_IMPORT_PREFIX}/lib/BugpointPasses.so" )
-
-# Import target "llvm-bcanalyzer" for configuration "Release"
-set_property(TARGET llvm-bcanalyzer APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(llvm-bcanalyzer PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-bcanalyzer"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS llvm-bcanalyzer )
-list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-bcanalyzer "${_IMPORT_PREFIX}/bin/llvm-bcanalyzer" )
+list(APPEND _IMPORT_CHECK_TARGETS llvm-split )
+list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-split "${_IMPORT_PREFIX}/bin/llvm-split" )
 
 # Import target "llvm-stress" for configuration "Release"
 set_property(TARGET llvm-stress APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
@@ -799,24 +815,6 @@ set_target_properties(llvm-stress PROPERTIES
 list(APPEND _IMPORT_CHECK_TARGETS llvm-stress )
 list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-stress "${_IMPORT_PREFIX}/bin/llvm-stress" )
 
-# Import target "llvm-mcmarkup" for configuration "Release"
-set_property(TARGET llvm-mcmarkup APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(llvm-mcmarkup PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-mcmarkup"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS llvm-mcmarkup )
-list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-mcmarkup "${_IMPORT_PREFIX}/bin/llvm-mcmarkup" )
-
-# Import target "verify-uselistorder" for configuration "Release"
-set_property(TARGET verify-uselistorder APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(verify-uselistorder PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/verify-uselistorder"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS verify-uselistorder )
-list(APPEND _IMPORT_CHECK_FILES_FOR_verify-uselistorder "${_IMPORT_PREFIX}/bin/verify-uselistorder" )
-
 # Import target "llvm-symbolizer" for configuration "Release"
 set_property(TARGET llvm-symbolizer APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(llvm-symbolizer PROPERTIES
@@ -825,15 +823,6 @@ set_target_properties(llvm-symbolizer PROPERTIES
 
 list(APPEND _IMPORT_CHECK_TARGETS llvm-symbolizer )
 list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-symbolizer "${_IMPORT_PREFIX}/bin/llvm-symbolizer" )
-
-# Import target "llvm-c-test" for configuration "Release"
-set_property(TARGET llvm-c-test APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(llvm-c-test PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-c-test"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS llvm-c-test )
-list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-c-test "${_IMPORT_PREFIX}/bin/llvm-c-test" )
 
 # Import target "obj2yaml" for configuration "Release"
 set_property(TARGET obj2yaml APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
@@ -844,6 +833,33 @@ set_target_properties(obj2yaml PROPERTIES
 list(APPEND _IMPORT_CHECK_TARGETS obj2yaml )
 list(APPEND _IMPORT_CHECK_FILES_FOR_obj2yaml "${_IMPORT_PREFIX}/bin/obj2yaml" )
 
+# Import target "opt" for configuration "Release"
+set_property(TARGET opt APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(opt PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/opt"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS opt )
+list(APPEND _IMPORT_CHECK_FILES_FOR_opt "${_IMPORT_PREFIX}/bin/opt" )
+
+# Import target "sancov" for configuration "Release"
+set_property(TARGET sancov APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(sancov PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/sancov"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS sancov )
+list(APPEND _IMPORT_CHECK_FILES_FOR_sancov "${_IMPORT_PREFIX}/bin/sancov" )
+
+# Import target "verify-uselistorder" for configuration "Release"
+set_property(TARGET verify-uselistorder APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(verify-uselistorder PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/verify-uselistorder"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS verify-uselistorder )
+list(APPEND _IMPORT_CHECK_FILES_FOR_verify-uselistorder "${_IMPORT_PREFIX}/bin/verify-uselistorder" )
+
 # Import target "yaml2obj" for configuration "Release"
 set_property(TARGET yaml2obj APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(yaml2obj PROPERTIES
@@ -852,34 +868,6 @@ set_target_properties(yaml2obj PROPERTIES
 
 list(APPEND _IMPORT_CHECK_TARGETS yaml2obj )
 list(APPEND _IMPORT_CHECK_FILES_FOR_yaml2obj "${_IMPORT_PREFIX}/bin/yaml2obj" )
-
-# Import target "llvm-pdbdump" for configuration "Release"
-set_property(TARGET llvm-pdbdump APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(llvm-pdbdump PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-pdbdump"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS llvm-pdbdump )
-list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-pdbdump "${_IMPORT_PREFIX}/bin/llvm-pdbdump" )
-
-# Import target "LTO" for configuration "Release"
-set_property(TARGET LTO APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(LTO PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLTO.so.3.7.0svn"
-  IMPORTED_SONAME_RELEASE "libLTO.so.3.7"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS LTO )
-list(APPEND _IMPORT_CHECK_FILES_FOR_LTO "${_IMPORT_PREFIX}/lib/libLTO.so.3.7.0svn" )
-
-# Import target "llvm-lto" for configuration "Release"
-set_property(TARGET llvm-lto APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(llvm-lto PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/llvm-lto"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS llvm-lto )
-list(APPEND _IMPORT_CHECK_FILES_FOR_llvm-lto "${_IMPORT_PREFIX}/bin/llvm-lto" )
 
 # Commands beyond this point should not need to know the version.
 set(CMAKE_IMPORT_FILE_VERSION)

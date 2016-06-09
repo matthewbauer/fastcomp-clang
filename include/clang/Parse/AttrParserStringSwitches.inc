@@ -1,6 +1,6 @@
 /*===- TableGen'erated file -------------------------------------*- C++ -*-===*\
 |*                                                                            *|
-|*Parser-related llvm::StringSwitch cases                                     *|
+|* Parser-related llvm::StringSwitch cases                                    *|
 |*                                                                            *|
 |* Automatically generated file, do not edit!                                 *|
 |*                                                                            *|
@@ -47,6 +47,7 @@
 .Case("loop", true)
 .Case("unroll", true)
 .Case("nounroll", true)
+.Case("interrupt", true)
 .Case("mode", true)
 .Case("objc_bridge", true)
 .Case("objc_bridge_mutable", true)

@@ -1,6 +1,6 @@
 /*===- TableGen'erated file -------------------------------------*- C++ -*-===*\
 |*                                                                            *|
-|*Attribute deserialization code                                              *|
+|* Attribute deserialization code                                             *|
 |*                                                                            *|
 |* Automatically generated file, do not edit!                                 *|
 |*                                                                            *|
@@ -367,8 +367,8 @@
     bool isInherited = Record[Idx++];
     bool isImplicit = Record[Idx++];
     unsigned Spelling = Record[Idx++];
-    int maxThreads = Record[Idx++];
-    int minBlocks = Record[Idx++];
+    Expr * maxThreads = ReadExpr(F);
+    Expr * minBlocks = ReadExpr(F);
     New = new (Context) CUDALaunchBoundsAttr(Range, Context, maxThreads, minBlocks, Spelling);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
@@ -543,6 +543,15 @@
     unsigned Spelling = Record[Idx++];
     int priority = Record[Idx++];
     New = new (Context) DestructorAttr(Range, Context, priority, Spelling);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    break;
+  }
+  case attr::DisableTailCalls: {
+    bool isInherited = Record[Idx++];
+    bool isImplicit = Record[Idx++];
+    unsigned Spelling = Record[Idx++];
+    New = new (Context) DisableTailCallsAttr(Range, Context, Spelling);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     break;
@@ -730,6 +739,15 @@
     New->setImplicit(isImplicit);
     break;
   }
+  case attr::InternalLinkage: {
+    bool isInherited = Record[Idx++];
+    bool isImplicit = Record[Idx++];
+    unsigned Spelling = Record[Idx++];
+    New = new (Context) InternalLinkageAttr(Range, Context, Spelling);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    break;
+  }
   case attr::LockReturned: {
     bool isInherited = Record[Idx++];
     bool isImplicit = Record[Idx++];
@@ -858,6 +876,16 @@
     New->setImplicit(isImplicit);
     break;
   }
+  case attr::MipsInterrupt: {
+    bool isInherited = Record[Idx++];
+    bool isImplicit = Record[Idx++];
+    unsigned Spelling = Record[Idx++];
+    MipsInterruptAttr::InterruptType interrupt(static_cast<MipsInterruptAttr::InterruptType>(Record[Idx++]));
+    New = new (Context) MipsInterruptAttr(Range, Context, interrupt, Spelling);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    break;
+  }
   case attr::Mode: {
     bool isImplicit = Record[Idx++];
     unsigned Spelling = Record[Idx++];
@@ -916,6 +944,15 @@
     bool isImplicit = Record[Idx++];
     unsigned Spelling = Record[Idx++];
     New = new (Context) NakedAttr(Range, Context, Spelling);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    break;
+  }
+  case attr::NoAlias: {
+    bool isInherited = Record[Idx++];
+    bool isImplicit = Record[Idx++];
+    unsigned Spelling = Record[Idx++];
+    New = new (Context) NoAliasAttr(Range, Context, Spelling);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     break;
@@ -983,29 +1020,16 @@
     New->setImplicit(isImplicit);
     break;
   }
-  case attr::NoSanitizeAddress: {
+  case attr::NoSanitize: {
     bool isInherited = Record[Idx++];
     bool isImplicit = Record[Idx++];
     unsigned Spelling = Record[Idx++];
-    New = new (Context) NoSanitizeAddressAttr(Range, Context, Spelling);
-    cast<InheritableAttr>(New)->setInherited(isInherited);
-    New->setImplicit(isImplicit);
-    break;
-  }
-  case attr::NoSanitizeMemory: {
-    bool isInherited = Record[Idx++];
-    bool isImplicit = Record[Idx++];
-    unsigned Spelling = Record[Idx++];
-    New = new (Context) NoSanitizeMemoryAttr(Range, Context, Spelling);
-    cast<InheritableAttr>(New)->setInherited(isInherited);
-    New->setImplicit(isImplicit);
-    break;
-  }
-  case attr::NoSanitizeThread: {
-    bool isInherited = Record[Idx++];
-    bool isImplicit = Record[Idx++];
-    unsigned Spelling = Record[Idx++];
-    New = new (Context) NoSanitizeThreadAttr(Range, Context, Spelling);
+  unsigned sanitizersSize = Record[Idx++];
+  SmallVector<std::string, 4> sanitizers;
+  sanitizers.reserve(sanitizersSize);
+    for (unsigned i = sanitizersSize; i; --i)
+    sanitizers.push_back(ReadString(Record, Idx));
+    New = new (Context) NoSanitizeAttr(Range, Context, sanitizers.data(), sanitizersSize, Spelling);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     break;
@@ -1051,12 +1075,28 @@
     New->setImplicit(isImplicit);
     break;
   }
+  case attr::NotTailCalled: {
+    bool isInherited = Record[Idx++];
+    bool isImplicit = Record[Idx++];
+    unsigned Spelling = Record[Idx++];
+    New = new (Context) NotTailCalledAttr(Range, Context, Spelling);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    break;
+  }
   case attr::OMPThreadPrivateDecl: {
     bool isInherited = Record[Idx++];
     bool isImplicit = Record[Idx++];
     unsigned Spelling = Record[Idx++];
     New = new (Context) OMPThreadPrivateDeclAttr(Range, Context, Spelling);
     cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    break;
+  }
+  case attr::ObjCBoxable: {
+    bool isImplicit = Record[Idx++];
+    unsigned Spelling = Record[Idx++];
+    New = new (Context) ObjCBoxableAttr(Range, Context, Spelling);
     New->setImplicit(isImplicit);
     break;
   }
@@ -1282,6 +1322,16 @@
     New->setImplicit(isImplicit);
     break;
   }
+  case attr::PassObjectSize: {
+    bool isInherited = Record[Idx++];
+    bool isImplicit = Record[Idx++];
+    unsigned Spelling = Record[Idx++];
+    int type = Record[Idx++];
+    New = new (Context) PassObjectSizeAttr(Range, Context, type, Spelling);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    break;
+  }
   case attr::Pcs: {
     bool isInherited = Record[Idx++];
     bool isImplicit = Record[Idx++];
@@ -1489,6 +1539,16 @@
     New->setImplicit(isImplicit);
     break;
   }
+  case attr::Target: {
+    bool isInherited = Record[Idx++];
+    bool isImplicit = Record[Idx++];
+    unsigned Spelling = Record[Idx++];
+    std::string featuresStr= ReadString(Record, Idx);
+    New = new (Context) TargetAttr(Range, Context, featuresStr, Spelling);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    break;
+  }
   case attr::TestTypestate: {
     bool isInherited = Record[Idx++];
     bool isImplicit = Record[Idx++];
@@ -1567,7 +1627,8 @@
     bool isImplicit = Record[Idx++];
     unsigned Spelling = Record[Idx++];
     std::string message= ReadString(Record, Idx);
-    New = new (Context) UnavailableAttr(Range, Context, message, Spelling);
+    UnavailableAttr::ImplicitReason implicitReason(static_cast<UnavailableAttr::ImplicitReason>(Record[Idx++]));
+    New = new (Context) UnavailableAttr(Range, Context, message, implicitReason, Spelling);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     break;
